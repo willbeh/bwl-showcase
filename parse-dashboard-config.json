@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "serverURL": "http://localhost:1337/api",
+      "appId": "bwl",
+      "masterKey": "some-key",
+      "appName": "BWL"
+    }
+  ]
+}
