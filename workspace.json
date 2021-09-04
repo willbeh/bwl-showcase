@@ -1,6 +1,56 @@
 {
   "version": 2,
   "projects": {
+    "ng-ui": {
+      "projectType": "library",
+      "root": "libs/ng-ui",
+      "sourceRoot": "libs/ng-ui/src",
+      "prefix": "bwl",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ng-ui"],
+          "options": {
+            "jestConfig": "libs/ng-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ng-ui/src/**/*.ts",
+              "libs/ng-ui/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "parse": {
+      "projectType": "library",
+      "root": "libs/parse",
+      "sourceRoot": "libs/parse/src",
+      "prefix": "bwl",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/parse"],
+          "options": {
+            "jestConfig": "libs/parse/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/parse/src/**/*.ts",
+              "libs/parse/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "portal": {
       "projectType": "application",
       "root": "apps/portal",
@@ -19,7 +69,8 @@
             "inlineStyleLanguage": "scss",
             "assets": ["apps/portal/src/favicon.ico", "apps/portal/src/assets"],
             "styles": ["apps/portal/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": ["crypto-js"]
           },
           "configurations": {
             "production": {
@@ -184,7 +235,9 @@
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
-      "style": "scss"
+      "style": "scss",
+      "inlineStyle": true,
+      "inlineTemplate": true
     }
   },
   "defaultProject": "portal"

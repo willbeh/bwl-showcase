@@ -27,6 +27,12 @@
     ]
   },
   "projects": {
+    "ng-ui": {
+      "tags": []
+    },
+    "parse": {
+      "tags": []
+    },
     "portal": {
       "tags": []
     },

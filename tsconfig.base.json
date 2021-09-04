@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@bwl/ng-ui": ["libs/ng-ui/src/index.ts"],
+      "@bwl/parse": ["libs/parse/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
