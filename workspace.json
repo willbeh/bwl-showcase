@@ -1,6 +1,31 @@
 {
   "version": 2,
   "projects": {
+    "ng-features": {
+      "projectType": "library",
+      "root": "libs/ng-features",
+      "sourceRoot": "libs/ng-features/src",
+      "prefix": "bwl",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ng-features"],
+          "options": {
+            "jestConfig": "libs/ng-features/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ng-features/src/**/*.ts",
+              "libs/ng-features/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "ng-ui": {
       "projectType": "library",
       "root": "libs/ng-ui",

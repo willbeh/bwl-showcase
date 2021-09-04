@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
     <p>
       home works!
     </p>
-    <bwl-button-primary routerLink="/login"></bwl-button-primary>
+    <bwl-button-primary routerLink="/login">Login</bwl-button-primary>
+    <bwl-button-primary routerLink="/portal">portal</bwl-button-primary>
   `,
   styles: [
   ]

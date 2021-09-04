@@ -15,8 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@bwl/ng-features": ["libs/ng-features/src/index.ts"],
       "@bwl/ng-ui": ["libs/ng-ui/src/index.ts"],
-      "@bwl/parse": ["libs/parse/src/index.ts"]
+      "@bwl/parse": ["libs/parse/src/index.ts"],
+      "crypto": ["node_modules/crypto-js"]
     }
   },
   "exclude": ["node_modules", "tmp"]

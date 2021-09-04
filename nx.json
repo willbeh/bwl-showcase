@@ -27,6 +27,9 @@
     ]
   },
   "projects": {
+    "ng-features": {
+      "tags": []
+    },
     "ng-ui": {
       "tags": []
     },

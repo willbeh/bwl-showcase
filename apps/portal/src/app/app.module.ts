@@ -8,9 +8,11 @@ import { routes } from './app.routes';
 import * as Parse from 'parse';
 
 import { ButtonsModule } from '@bwl/ng-ui'
+import { IsAuthGuard, NgFeaturesModule } from '@bwl/ng-features';
 import { HomeComponent } from './public/home/home.component';
+import { ParseAuthService } from '@bwl/parse';
 
-Parse.initialize('bwl'); // use your appID & your js key
+Parse.initialize('bwl', 'some-key'); // use your appID & your js key
 (Parse as any).serverURL = 'http://localhost:1337/api';
 
 @NgModule({
@@ -20,7 +22,10 @@ Parse.initialize('bwl'); // use your appID & your js key
     RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
     ButtonsModule,
   ],
-  providers: [],
+  providers: [
+    ParseAuthService,
+    IsAuthGuard,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

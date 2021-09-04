@@ -65,5 +65,8 @@
     "webpack": "^5.47.0",
     "webpack-merge": "^5.8.0",
     "webpack-node-externals": "^3.0.0"
+  },
+  "browser": {
+    "crypto": false
   }
 }

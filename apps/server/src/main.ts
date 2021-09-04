@@ -9,7 +9,7 @@ import * as express from "express";
 const ParseServer = require('parse-server').ParseServer
 const path = require('path')
 const MASTER_KEY = process.env.MASTER_KEY || 'some-key'
-const CLOUD_CODE_MAIN = process.env.CLOUD_CODE_MAIN || __dirname + '/cloud'
+const CLOUD_CODE_MAIN = process.env.CLOUD_CODE_MAIN || __dirname + '/src/cloud'
 const APP_ID = process.env.APP_ID || 'bwl'
 const port = process.env.PORT || 1337
 const SERVER_URL = process.env.SERVER_URL || `http://localhost:${port}/api`  // Don't forget to change to https if needed
@@ -56,7 +56,7 @@ app.get('/', (req, res) => res
 // app.get('/test', (req, res) => res.sendFile(path.join(__dirname, '/public/test.html')))
 
 //Initialize Parse
-Parse.initialize(APP_ID);
+// Parse.initialize(APP_ID);
 // Parse.serverURL = SERVER_URL;
 // Parse.masterKey = MASTER_KEY;
 // Parse.Cloud.useMasterKey();

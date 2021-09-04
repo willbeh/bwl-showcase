@@ -5,8 +5,12 @@ import * as Parse from 'parse'
 export class ParseAuthService {
   constructor() {}
 
-  login(userid: string, password: string) {
-    return Parse.User.logIn(userid, userid);
+  login(email: string, password: string) {
+    return Parse.User.logIn(email, password);
+  }
+
+  logout() {
+    return Parse.User.logOut()
   }
 
   create(email: string, password: string) {

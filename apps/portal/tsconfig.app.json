@@ -2,13 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "types": [],
-    "baseUrl": "./",
-    "paths": {
-      "crypto": [
-        "node_modules/crypto-js"
-      ]
-    },
+    "types": []
   },
   "files": ["src/main.ts", "src/polyfills.ts"],
   "include": ["src/**/*.d.ts"]
