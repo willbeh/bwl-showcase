@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
+    "build:portal": "NODE_ENV=production nx build portal",
     "test": "nx test",
     "postinstall": "ngcc --properties es2015 browser module main",
     "dashboard": "parse-dashboard --config parse-dashboard-config.json"

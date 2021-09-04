@@ -13,3 +13,5 @@
 {"level":"info","message":"Parse LiveQuery Server starts running","timestamp":"2021-09-04T06:21:15.372Z"}
 {"message":"Invalid username/password.","code":101,"level":"error","stack":"Error: Invalid username/password.\n    at /Users/willbeh/work/fullstack/bwl/node_modules/parse-server/src/Routers/UsersRouter.js:102:19","timestamp":"2021-09-04T06:21:24.898Z"}
 {"message":"Invalid username/password.","code":101,"level":"error","stack":"Error: Invalid username/password.\n    at /Users/willbeh/work/fullstack/bwl/node_modules/parse-server/src/Routers/UsersRouter.js:102:19","timestamp":"2021-09-04T06:22:36.814Z"}
+{"level":"info","message":"Parse LiveQuery Server starts running","timestamp":"2021-09-04T06:37:28.512Z"}
+{"level":"info","message":"Parse LiveQuery Server starts running","timestamp":"2021-09-04T11:57:27.481Z"}
