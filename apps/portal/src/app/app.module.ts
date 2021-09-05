@@ -7,19 +7,21 @@ import { routes } from './app.routes';
 
 import * as Parse from 'parse';
 
-import { ButtonsModule } from '@bwl/ng-ui'
+import { ButtonsModule, LayoutConstrainedGridModule } from '@bwl/ng-ui'
 import { HomeComponent } from './public/home/home.component';
 import { ParseAuthService } from '@bwl/parse';
+import { AppBaseComponent } from './app-base.component';
 
 Parse.initialize('bwl'); // use your appID & your js key
 (Parse as any).serverURL = 'http://localhost:1337/api';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, AppBaseComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
     ButtonsModule,
+    LayoutConstrainedGridModule,
   ],
   providers: [
     ParseAuthService,
