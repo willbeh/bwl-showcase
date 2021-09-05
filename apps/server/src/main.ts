@@ -54,9 +54,24 @@ var corsOptions = {
 }
 
 // Parse Server plays nicely with the rest of your web routes
-app.get('/', cors(corsOptions), (req, res) => res
+app.get('/', cors(corsOptions), (req, res) => {
+  // Website you wish to allow to connect
+  res.setHeader('Access-Control-Allow-Origin', 'https://bwl-parse.web.app/');
+
+  // Request methods you wish to allow
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+  // Request headers you wish to allow
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+  // Set to true if you need the website to include cookies in the requests sent
+  // to the API (e.g. in case you use sessions)
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+
+  res
     .status(200)
-    .send('I dream of being a website.  Please star the parse-server repo on GitHub!'))
+    .send('I dream of being a website.  Please star the parse-server repo on GitHub!')
+})
 
 // There will be a test page available on the /test path of your server url
 // Remove this before launching your app
