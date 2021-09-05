@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@bwl/data": ["libs/data/src/index.ts"],
       "@bwl/ng-features": ["libs/ng-features/src/index.ts"],
       "@bwl/ng-ui": ["libs/ng-ui/src/index.ts"],
       "@bwl/parse": ["libs/parse/src/index.ts"],

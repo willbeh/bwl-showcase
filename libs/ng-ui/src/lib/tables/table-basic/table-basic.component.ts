@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,6 +14,8 @@ import { Observable } from 'rxjs';
             >
               {{ schema.label }}
             </th>
+            <th *ngIf="showEdit">
+            </th>
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200" *ngIf="entities$ | async as entities">
@@ -21,7 +23,15 @@ import { Observable } from 'rxjs';
             <td *ngFor="let schema of schemas"
               class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
             >
-              {{ entity.attributes[schema.key] }}
+              <ng-container [ngSwitch]="schema.type">
+                <ng-container *ngSwitchCase="'date'">{{ entity[schema.key] | date:'dd MMM yyyy' }}</ng-container>
+
+                <ng-container *ngSwitchDefault>{{ entity[schema.key] }}</ng-container>
+              </ng-container>
+              
+            </td>
+            <td *ngIf="showEdit" class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+              <div (click)="edit.emit(entity)" class="cursor-pointer text-indigo-600 hover:text-indigo-900">Edit</div>
             </td>
           </tr>
         </tbody>
@@ -33,6 +43,9 @@ import { Observable } from 'rxjs';
 export class TableBasicComponent implements OnInit {
   @Input() schemas: TableBasicSchema[] = []
   @Input() entities$ = new Observable<any>()
+  @Input() showEdit = false
+  
+  @Output() edit = new EventEmitter()
 
   constructor() {}
 
@@ -42,4 +55,5 @@ export class TableBasicComponent implements OnInit {
 export interface TableBasicSchema {
   key: string;
   label: string;
+  type?: 'date';
 }

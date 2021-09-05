@@ -3,12 +3,15 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
+    "start": "nx serve server",
+    "start:server": "nx serve server",
     "build": "nx build",
+    "build:server": "nx build server",
     "build:portal": "NODE_ENV=production nx build portal",
     "test": "nx test",
     "postinstall": "ngcc --properties es2015 browser module main",
-    "dashboard": "parse-dashboard --config parse-dashboard-config.json"
+    "dashboard": "parse-dashboard --config parse-dashboard-config.json",
+    "deploy:heroku": "git subtree push --prefix dist/app/server heroku main"
   },
   "private": true,
   "dependencies": {

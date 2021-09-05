@@ -13,6 +13,7 @@ export const routes: Routes = [
     children: [
       {path: '', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)},
       {path: 'members', loadChildren: () => import('./modules/members/members.module').then(m => m.MembersModule)},
+      {path: 'groups', loadChildren: () => import('./modules/groups/groups.module').then(m => m.GroupsModule)},
     ]
   },
 ]

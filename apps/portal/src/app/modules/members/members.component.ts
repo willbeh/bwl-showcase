@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { TableBasicSchema } from 'libs/ng-ui/src/lib/tables/table-basic/table-basic.component';
 
-import * as Parse from 'parse'
 import { Observable } from 'rxjs';
 import { MemberService } from '../../services/member.service';
 
 @Component({
   selector: 'bwl-members',
   template: `
+    <bwl-header>Members</bwl-header>
     <bwl-table-basic [schemas]="schemas" [entities$]="members$">
     </bwl-table-basic>
   `,
@@ -15,7 +15,7 @@ import { MemberService } from '../../services/member.service';
   ]
 })
 export class MembersComponent implements OnInit {
-  members$ = new Observable<Parse.User<Parse.Attributes>[]>()
+  members$ = new Observable<any>()
 
   schemas: TableBasicSchema[] = [
     {key: 'username', label: 'Username'},
@@ -25,7 +25,7 @@ export class MembersComponent implements OnInit {
   constructor(private memberService: MemberService) { }
 
   ngOnInit(): void {
-    this.members$ = this.memberService.get()
+    this.members$ = this.memberService.fetch()
   }
 
 }

@@ -15,6 +15,7 @@ export class AppBaseComponent implements OnInit {
   menus: LayoutConstrainedGridMenu[] = [
     {label: 'Dashboard', path: ['/portal']},
     {label: 'Members', path: ['/portal', 'members']},
+    {label: 'Groups', path: ['/portal', 'groups']},
   ]
 
   constructor() { }

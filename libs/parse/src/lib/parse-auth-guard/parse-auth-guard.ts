@@ -9,7 +9,6 @@ export type AuthPipeGenerator = (next: ActivatedRouteSnapshot, state: RouterStat
 export type AuthPipe = UnaryFunction<Observable<Parse.User|null>, Observable<boolean|string|any[]>>;
 
 export const loggedIn: AuthPipe = map(user => {
-  console.log('loggedIn', user)
   return !!user
 });
 

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import * as Parse from 'parse'
+import { Group } from '@bwl/data';
 import { ParseBaseService } from './parse-base.service';
 
 @Injectable()
-export class MemberService extends ParseBaseService<Parse.User> {
+export class GroupService extends ParseBaseService<Group> {
   constructor() {
-    super(Parse.User)
+    super("Group")
   }
 }

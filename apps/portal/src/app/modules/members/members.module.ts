@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MembersComponent } from './members.component';
 import { RouterModule } from '@angular/router';
 import { MemberService } from '../../services/member.service';
-import { TablesModule } from '@bwl/ng-ui';
+import { HeaderModule, TablesModule } from '@bwl/ng-ui';
 
 
 
@@ -17,6 +17,7 @@ import { TablesModule } from '@bwl/ng-ui';
       {path: '', component: MembersComponent}
     ]),
     TablesModule,
+    HeaderModule,
   ],
   providers: [
     MemberService
