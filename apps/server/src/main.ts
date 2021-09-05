@@ -4,10 +4,12 @@ import { Application } from 'express'
 import * as Parse from 'parse/node'
 // import express = require( 'express' )
 import * as express from "express";
+// import * as cors from "cors";
 // import { express as middleware } from 'graphql-voyager/middleware'
 
 const ParseServer = require('parse-server').ParseServer
 const path = require('path')
+const cors = require('cors')
 const MASTER_KEY = process.env.MASTER_KEY || 'some-key'
 const CLOUD_CODE_MAIN = process.env.CLOUD_CODE_MAIN || __dirname + '/src/cloud'
 const APP_ID = process.env.APP_ID || 'bwl'
@@ -46,8 +48,13 @@ const app: Application = express.default(); //express()
 const mountPath = process.env.PARSE_MOUNT || '/api'
 app.use(mountPath, api)
 
+var corsOptions = {
+  origin: 'https://bwl-parse.web.app/',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 // Parse Server plays nicely with the rest of your web routes
-app.get('/', (req, res) => res
+app.get('/', cors(corsOptions), (req, res) => res
     .status(200)
     .send('I dream of being a website.  Please star the parse-server repo on GitHub!'))
 
