@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve server",
+    "start": "node dist/apps/server/main.js",
     "start:server": "nx serve server",
     "build": "nx build server",
     "test": "nx test",
