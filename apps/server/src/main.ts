@@ -26,6 +26,7 @@ if (!DATABASE_URI) {
 console.log(`CLOUD ${CLOUD_CODE_MAIN}`);
 
 const api = new ParseServer({
+    allowOrigin: "*",
     databaseURI: DATABASE_URI,
     // cloud: CLOUD_CODE_MAIN,
     appId: APP_ID,
