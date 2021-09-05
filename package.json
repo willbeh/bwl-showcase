@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node /dist/apps/server/main.js",
+    "start": "node dist/apps/server/main.js",
     "start:server": "nx serve server",
     "build": "nx build",
     "build:portal": "NODE_ENV=production nx build portal",
