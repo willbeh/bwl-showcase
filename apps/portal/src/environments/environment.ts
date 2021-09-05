@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  parse: 'http://localhost:1337/api',
+  parseAppId: 'bwl'
 };
 
 /*

@@ -11,9 +11,10 @@ import { ButtonsModule, LayoutConstrainedGridModule } from '@bwl/ng-ui'
 import { HomeComponent } from './public/home/home.component';
 import { ParseAuthService } from '@bwl/parse';
 import { AppBaseComponent } from './app-base.component';
+import { environment } from '../environments/environment';
 
-Parse.initialize('bwl'); // use your appID & your js key
-(Parse as any).serverURL = 'http://localhost:1337/api';
+Parse.initialize(environment.parseAppId); // use your appID & your js key
+(Parse as any).serverURL = environment.parse;
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, AppBaseComponent],
