@@ -9,6 +9,7 @@ import { ParseAuthService } from '@bwl/parse';
       dashboard works!
     </p>
     <bwl-button-primary (click)="logout()">Logout</bwl-button-primary>
+    <bwl-button-primary [routerLink]="['/portal', 'members']">Members</bwl-button-primary>
   `,
   styles: [
   ]
