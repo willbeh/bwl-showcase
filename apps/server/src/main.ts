@@ -85,6 +85,7 @@ app.get('/', (req, res) => {
 // Parse.Cloud.useMasterKey();
 
 import './cloud/main.ts';
+import './cloud/groups.ts';
 
 //GraphQL
 // app.use('/graphql', GraphQLHTTP((request) => ({
