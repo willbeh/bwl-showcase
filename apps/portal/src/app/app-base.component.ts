@@ -27,13 +27,22 @@ export class AppBaseComponent implements OnInit {
   constructor(private auth: ParseAuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.user = this.auth.user
-    console.log(this.user);
+    this.auth.getUser().then((user) => {
+      if(user) {
+        this.user = ({id: user.id, ...user.attributes} as User) 
+      } else {
+        this.user = null
+      }
+    })
   }
 
   logout() {
+    console.log('Bye bye')
     this.auth.logout()
-      .then(() => this.router.navigate(['/']))
+      .then(() => {
+        this.user = null
+        this.router.navigate(['/auth'])
+      })
       .catch(e => console.error(e))
   }
 

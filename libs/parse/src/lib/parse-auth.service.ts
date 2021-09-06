@@ -24,5 +24,9 @@ export class ParseAuthService {
     return user.signUp();
   }
 
+  getUser() {
+    return Parse.User.currentAsync()
+  }
+
   user: User | null = Parse.User.current() ? ({id: Parse.User.current()?.id, ...Parse.User.current()?.attributes} as User) : null;
 }
