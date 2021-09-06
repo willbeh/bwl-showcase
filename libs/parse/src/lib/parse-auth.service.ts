@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as Parse from 'parse'
 
+import { User } from '@bwl/data';
+
 @Injectable()
 export class ParseAuthService {
   constructor() {}
@@ -13,13 +15,14 @@ export class ParseAuthService {
     return Parse.User.logOut()
   }
 
-  create(email: string, password: string) {
+  create(name: string, email: string, password: string) {
     const user = new Parse.User();
+    user.set("name", name);
     user.set("username", email);
     user.set("password", password);
     user.set("email", email);
     return user.signUp();
   }
 
-  user = Parse.User.current();
+  user: User | null = Parse.User.current() ? ({id: Parse.User.current()?.id, ...Parse.User.current()?.attributes} as User) : null;
 }
