@@ -10,9 +10,9 @@ import { GroupService } from '../../services/group.service';
   template: `
     <bwl-header>
       Groups
-      <div actions>
+      <ng-container actions>
         <bwl-button-primary [routerLink]="['new']">Create</bwl-button-primary>
-      </div>
+      </ng-container>
     </bwl-header>
     <bwl-table-basic [schemas]="schemas" [entities$]="entities$" [showEdit]="true" (edit)="edit($event)">
     </bwl-table-basic>

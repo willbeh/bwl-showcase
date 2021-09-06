@@ -18,7 +18,7 @@ import { Observable } from 'rxjs';
             </th>
           </tr>
         </thead>
-        <tbody class="bg-white divide-y divide-gray-200" *ngIf="entities$ | async as entities">
+        <tbody class="bg-white divide-y divide-gray-200" *ngIf="entities$ | async as entities else isLoading">
           <tr *ngFor="let entity of entities">
             <td *ngFor="let schema of schemas"
               class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
@@ -35,6 +35,16 @@ import { Observable } from 'rxjs';
             </td>
           </tr>
         </tbody>
+
+        <ng-template #isLoading>
+          <tbody>
+            <tr>
+              <td colspan="">
+                Loading
+              </td>
+            </tr>
+          </tbody>
+        </ng-template>
       </table>
     </div>
   `,

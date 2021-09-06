@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'bwl-layout-constrained-grid',
@@ -10,6 +10,8 @@ export class LayoutConstrainedGridComponent implements OnInit {
   isMenuOpen = false
   isProfileOpen = false
   @Input() menus: LayoutConstrainedGridMenu[] = []
+
+  @Output() logout = new EventEmitter()
 
   constructor() { }
 
