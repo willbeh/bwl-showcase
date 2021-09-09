@@ -1,0 +1,29 @@
+name: Deploy to Server to App Engine
+'on':
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/server/**"
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci && npm run build:server
+      - run: echo "My $APP_ID"
+        env:
+          APP_ID: ${{ env.APP_ID }}
+      - name: Setup Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0.2.0
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+      - name: Deploy to App Engine
+        run: cd dist/apps/server && gcloud app deploy app.yaml --quiet --no-promote --version v1
+        env:
+          DATABASE_URI: ${{ env.DATABASE_URI }}
+          APP_ID: ${{ env.APP_ID }}
+          MASTER_KEY: ${{ env.MASTER_KEY }}
+          SERVER_URL: ${{ env.SERVER_URL }}
+

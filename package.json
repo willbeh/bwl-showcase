@@ -6,9 +6,8 @@
     "start": "node dist/apps/server/main.js",
     "start:server": "nx serve server",
     "build": "nx build server",
-    "build:server": "nx build server",
-    "affected:build": "nx affected:build server",
     "build:portal": "NODE_ENV=production nx build portal",
+    "build:server": "nx build server",
     "test": "nx test",
     "postinstall": "ngcc --properties es2015 browser module main",
     "dashboard": "parse-dashboard --config parse-dashboard-config.json"
