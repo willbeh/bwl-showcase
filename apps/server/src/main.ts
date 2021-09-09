@@ -50,7 +50,7 @@ const app: Application = express.default(); //express()
 
 // Serve the Parse API on the /parse URL prefix
 const mountPath = process.env.PARSE_MOUNT || '/api'
-app.use(mountPath, api)
+app.use(mountPath, cors(corsOptions), api)
 app.use(cors(corsOptions))
 
 // var corsOptions = {
