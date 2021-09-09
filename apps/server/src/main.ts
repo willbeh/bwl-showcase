@@ -9,7 +9,7 @@ import * as express from "express";
 
 const ParseServer = require('parse-server').ParseServer
 // const path = require('path')
-// const cors = require('cors')
+const cors = require('cors')
 const MASTER_KEY = process.env.MASTER_KEY || 'some-key'
 const CLOUD_CODE_MAIN = process.env.CLOUD_CODE_MAIN || __dirname + '/src/cloud'
 const APP_ID = process.env.APP_ID || 'bwl'
@@ -23,7 +23,10 @@ if (!DATABASE_URI) {
     console.log(`DATABASE_URI not specified, fallingback to ${DATABASE_URI}`)
 }
 
-console.log(`CLOUD ${CLOUD_CODE_MAIN}`);
+var corsOptions = {
+  origin: 'https://bwl-parse.web.app',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 const api = new ParseServer({
     allowOrigin: "*",
@@ -48,6 +51,7 @@ const app: Application = express.default(); //express()
 // Serve the Parse API on the /parse URL prefix
 const mountPath = process.env.PARSE_MOUNT || '/api'
 app.use(mountPath, api)
+app.use(cors(corsOptions))
 
 // var corsOptions = {
 //   origin: 'https://bwl-parse.web.app/',
