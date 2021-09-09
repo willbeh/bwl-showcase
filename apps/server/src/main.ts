@@ -20,7 +20,7 @@ let DATABASE_URI = process.env.DATABASE_URI || process.env.MONGODB_URI
 
 if (!DATABASE_URI) {
     DATABASE_URI = 'mongodb://localhost:27017/bwlparse'
-    console.log(`DATABASE_URI not specified, falling back to ${DATABASE_URI}`)
+    console.log(`DATABASE_URI not specified, fallingback to ${DATABASE_URI}`)
 }
 
 console.log(`CLOUD ${CLOUD_CODE_MAIN}`);
