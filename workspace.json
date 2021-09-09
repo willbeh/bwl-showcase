@@ -69,6 +69,62 @@
               "libs/ng-ui/src/**/*.html"
             ]
           }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/ng-ui/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/ng-ui",
+            "config": {
+              "configFolder": "libs/ng-ui/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "ng-ui-e2e": {
+      "root": "apps/ng-ui-e2e",
+      "sourceRoot": "apps/ng-ui-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ng-ui-e2e/cypress.json",
+            "devServerTarget": "ng-ui:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "ng-ui:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ng-ui-e2e/**/*.{js,ts}"]
+          }
         }
       }
     },

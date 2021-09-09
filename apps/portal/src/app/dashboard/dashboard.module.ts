@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule } from '@angular/router';
-import { ButtonsModule } from '@bwl/ng-ui';
+import { ButtonsModule, HeaderModule } from '@bwl/ng-ui';
 
 
 
@@ -14,6 +14,7 @@ import { ButtonsModule } from '@bwl/ng-ui';
       {path: '', component: DashboardComponent}
     ]),
     ButtonsModule,
+    HeaderModule,
   ]
 })
 export class DashboardModule { }
