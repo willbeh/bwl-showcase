@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  parse: 'https://infinite-stream-38607.herokuapp.com/api',
+  parse: 'https://event-tree.et.r.appspot.com/api',
   parseAppId: 'bwl'
 };
